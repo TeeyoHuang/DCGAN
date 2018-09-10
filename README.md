@@ -15,11 +15,12 @@ down load the data by
 
 # Results 
 
-dcgan.py  -10 epochs result
+**dcgan.py  -10 epochs result** 
+
 ![image](https://github.com/TeeyoHuang/DCGAN/blob/master/img/10-0.jpg) 
  
  
- dcgan-comic.py -40 epochs result
+**dcgan-comic.py -40 epochs result**
 ![image](https://github.com/TeeyoHuang/DCGAN/blob/master/img/40-32600-0.jpg) 
 
 # Reference 
