@@ -137,17 +137,16 @@ for epoch in range(args.n_epochs):
         # Adversarial ground truths
         valid = Variable(torch.ones(mini_batch).cuda(), requires_grad=False)
         fake = Variable(torch.zeros(mini_batch).cuda(), requires_grad=False)
-        #valid = Variable(torch.ones((imgs.size(0), 1),dtype=torch.float32, device=gpu),requires_grad=False)
-        #fake = Variable(torch.zeros((imgs.size(0), 1),dtype=torch.float32, device=gpu),requires_grad=False)
+        
         # Configure input
         real_imgs = Variable(imgs.cuda())
         z = Variable(torch.randn((mini_batch, args.latent_dim)).view(-1, args.latent_dim, 1, 1).cuda())
+        
         # ---------------------
         #  Train Discriminator
         # ---------------------
-
         optimizer_D.zero_grad()
-        # Measure discriminator's ability to classify real from generated samples
+        
         real_loss = adversarial_loss(discriminator(real_imgs).squeeze(), valid)
         fake_loss = adversarial_loss(discriminator(generator(z).detach()).squeeze(), fake)
         d_loss = (real_loss + fake_loss)
@@ -158,7 +157,6 @@ for epoch in range(args.n_epochs):
         # -----------------
         #  Train Generator
         # -----------------
-
         optimizer_G.zero_grad()
 
         # Sample noise as generator input
@@ -172,8 +170,7 @@ for epoch in range(args.n_epochs):
         g_loss.backward()
         optimizer_G.step()
 
-
-
+        
         print ("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, args.n_epochs, i, len(dataloader),
                                                             d_loss.data.cpu(), g_loss.data.cpu()))
 
