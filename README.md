@@ -2,8 +2,10 @@
 the pytorch version of dcgan[1]
 
 # Requirments 
-CUDA 8.0+ 
-pytorch 0.3.1 
+CUDA 8.0+  
+
+pytorch 0.3.1  
+
 torchvision 
 
 # dcgan.py 
