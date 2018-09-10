@@ -11,7 +11,9 @@ using the mnist[2] dataset
 
 # dcgan-comic.py 
 using the comic images data 
-down load the data by 
+down load the data by [faces](https://pan.baidu.com/s/1n-cB-uJvDXMBjvtwb9iRiA)  
+
+password: 4wyq
 
 # Results 
 
