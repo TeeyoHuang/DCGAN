@@ -138,10 +138,11 @@ for epoch in range(args.n_epochs):
         # Configure input
         real_imgs = Variable(imgs.cuda())
         z = Variable(torch.randn((mini_batch, args.latent_dim)).view(-1, args.latent_dim, 1, 1).cuda())
+        
+        
         # ---------------------
         #  Train Discriminator
         # ---------------------
-
         optimizer_D.zero_grad()
         # Measure discriminator's ability to classify real from generated samples
         real_loss = adversarial_loss(discriminator(real_imgs).squeeze(), valid)
@@ -154,7 +155,6 @@ for epoch in range(args.n_epochs):
         # -----------------
         #  Train Generator
         # -----------------
-
         optimizer_G.zero_grad()
 
         # Sample noise as generator input
@@ -166,7 +166,6 @@ for epoch in range(args.n_epochs):
 
         g_loss.backward()
         optimizer_G.step()
-
 
 
         print ("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, args.n_epochs, i, len(dataloader),
